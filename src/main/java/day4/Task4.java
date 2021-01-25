@@ -6,16 +6,25 @@ public class Task4 {
         for (int i = 0; i < array.length; i++){
             array[i] = (int) (Math.random()*10000)+1;
         }
-        int sum = 0;
         int maxSum = 0;
         int index = 0;
-        for (int i = 1; i < array.length - 1; i++){
-            sum = array[i] + array[i-1] + array[i+1];
+        for (int i = 0; i < array.length - 2; i++){    //1 число + 2 после него, и 2 последних не включены в длину, тк 3 с конца +2 числа
+            int sum = 0;
+            for (int j = i; j < i + 3;j++)
+            sum += array[j];
+            //System.out.print(sum + " сумма чисел | ");
             if (sum > maxSum){
-                index = i -1;
+                maxSum = sum;
+                index = i;
             }
-            maxSum = Math.max(maxSum,sum);
+            //System.out.println("тройка №" + i);
+            //System.out.println(i-1 + " - " + array[i-1]);
+            //System.out.println(i + " - " + array[i]);
+            //System.out.println(i+1 + " - " + array[i+1]);
+            //System.out.print("Сумма max= " + maxSum);
+            //System.out.println();
         }
+        //System.out.println();
         System.out.println("Максимальная сумма тройки соседних элементов = " + maxSum);
         System.out.println("Индекс первого элемента тройки с максимальной суммой : " + index);
     }

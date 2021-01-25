@@ -9,13 +9,10 @@ public class Task4 {
         double y;
         if (x >= 5){
             y = (x*x - 10) / (x +7);
-            System.out.println(y);
         } else if (x > - 3 && x < 5){
             y = (x + 3)*(x*x - 2);
-            System.out.println(y);
         } else {
-            y = 420;
+            y = 420;}
             System.out.println(y);
-        }
     }
 }

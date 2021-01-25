@@ -12,26 +12,19 @@ public class Task3 {
     }
     int maxSum = 0;
     int index = 0;
-    int indexCurent = 0;
-    for (int j = 0; j < m; j++){
+    for (int i = 0; i < array[i].length; i++){
         int sum = 0;
-        for (int i = 0; i < array[j].length; i++){
-            //System.out.print(array[j][i] + " ");
-            sum = sum + array[j][i];
+        for (int j = 0; j < array[i].length; j++){
+            //System.out.print(array[i][j] + " ");
+            sum += array[i][j];
             }
         //System.out.println();
-        //System.out.println("код строки : " + j);
+        //System.out.println("код строки : " + i);
         //System.out.println(sum);
-        maxSum = Math.max(maxSum, sum);
-        if (maxSum > sum){
-            index = index;
-            indexCurent++;
-        } else if(maxSum == sum){
-            index = indexCurent;
-            indexCurent++;
+        if (sum >= maxSum){
+            maxSum = sum;
+            index = i;
         }
-        else{index=indexCurent;
-            indexCurent++;}
         //System.out.println();
         }
         //System.out.println("MAX SUM : " + maxSum);
