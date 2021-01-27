@@ -8,6 +8,5 @@ public class Task2 {
         airplane.fillUp(1500);
         airplane.fillUp(1800);
         airplane.info();
-
     }
 }

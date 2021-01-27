@@ -12,12 +12,12 @@ public class Task2 {
         Player player7 = new Player(Player.getRandomStamina());
         Player player8 = new Player(Player.getRandomStamina());
         System.out.println("Сейчас на поле " + Player.getCountPlayer() + " игроков");
-        player1.runRunRun(95);
-        player2.runRunRun(97);
-        player3.runRunRun(100);
-        player4.runRunRun(91);
-        player5.runRunRun(96);
-        player6.runRunRun(90);
+        player1.run(95);
+        player2.run(97);
+        player3.run(100);
+        player4.run(91);
+        player5.run(96);
+        player6.run(90);
         Player.info();
 
     }

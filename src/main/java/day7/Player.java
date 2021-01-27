@@ -7,25 +7,21 @@ public class Player {
     private static int countPlayer = 0;
 
     public Player(int stamina){
-        countPlayer++;
-        if (countPlayer > 6){
+        if (countPlayer < 6){
+            countPlayer++;
+        } else {
             System.out.println("Нельзя иметь на поле больше 6 игроков");
-            countPlayer--;
         }
         this.stamina = stamina;
     }
     public static int getCountPlayer() {
         return countPlayer;
     }
-    public int getStamina() {
+    public int getStamina () {
         return stamina;
     }
-    public void run(){
-        stamina -= 1;
-        if (stamina == MIN_STAMINA){
-            System.out.println("Выносливость игрока на нуле, ему необходимо отдохнуть");
-            countPlayer--;
-        }
+    public void run (int number){
+        runRunRun(number);
     }
     public static void info(){
         if (countPlayer < 6){
@@ -42,9 +38,15 @@ public class Player {
         if (number > stamina){
             System.out.println("Игрок не может бежать дальше, ему необходимо отдохнуть. Он не может пробежать еще " + Math.abs(stamina - number) + " раз(а)");
             countPlayer--;
+            stamina = 0;
         } else {
         for (int i = 0; i < number; i++){
-            run();
+            stamina -= 1;
+            if (stamina == MIN_STAMINA){
+                System.out.println("Выносливость игрока на нуле, ему необходимо отдохнуть");
+                countPlayer--;
+                stamina = 0;
+            }
         } if (stamina > 0){
             System.out.println("У игрока осталось " + stamina + " выносливости");
         }

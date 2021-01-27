@@ -29,11 +29,12 @@ public class Airplane {
     }
 
     public static void compareAirplanes(Airplane air1, Airplane air2){
-        int i = Math.max(air1.length, air2.length);
-        if (i == air1.length){
+        if (air1.length > air2.length){
             System.out.println("Самолет " + air1.producer + " длиннее " + air2.producer);
-        } else {
+        } else if (air1.length < air2.length){
             System.out.println("Самолет " + air2.producer + " длиннее " + air1.producer);
+        } else if (air1.length == air2.length) {
+            System.out.println("Длины самолетов равны");
         }
     }
 }

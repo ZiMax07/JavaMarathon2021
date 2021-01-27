@@ -1,4 +1,4 @@
-package day6;
+package day8;
 
 public class Airplane {
     private String producer;
@@ -26,5 +26,10 @@ public class Airplane {
     }
     public void fillUp(int n){
         fuel += n;
+    }
+
+    public String toString(){
+        return "Изготовитель: " + producer +", год выпуска: " + year + ", длина: "
+                + length + ", вес: " + weight + ", количество топлива в баке: " + fuel;
     }
 }

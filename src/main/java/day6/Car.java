@@ -30,10 +30,7 @@ public class Car {
         System.out.println("Это автомобиль");
     }
     public int yearDifference (int inputYear){
-        int difference = year - inputYear;
-        if (difference < 0){
-            difference *= -1;
-        }
+        int difference = Math.abs(year - inputYear);
         return difference;
     }
 }
