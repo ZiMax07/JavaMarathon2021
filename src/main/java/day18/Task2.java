@@ -6,6 +6,7 @@ public class Task2 {
         System.out.println(count7(1727374757));
 
     }
+
         static int count7;
         static int number;
         static int numberIndexInArray;

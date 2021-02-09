@@ -10,6 +10,7 @@ public class Task3 {
             Node.addNode(number, root);
         }
 
+
         Node.dfs(root);
     }
 }

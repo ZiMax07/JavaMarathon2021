@@ -36,6 +36,7 @@ public class Node {
         Node nextNode = root;
         Node current = null;
 
+
         while (nextNode != null){
             current = nextNode;
             if (insertValue < current.getNode()){

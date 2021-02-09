@@ -6,6 +6,7 @@ public class Task1 {
         System.out.println(recursionSum(0));
 
     }
+
     static int sum;
     static int[] numbers = new int[]{1, 10, 1241, 50402, -50, 249, 10215, 665, 2295, 7, 311};
 
