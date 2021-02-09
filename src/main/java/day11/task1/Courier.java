@@ -5,7 +5,7 @@ public class Courier implements Worker{
     private boolean isPayed;
     private int salaryToPay;
     private int bonus;
-    private  Warehouse warehouse = new Warehouse();
+    private  Warehouse warehouse;
 
     public Courier(int salary, Warehouse warehouse){
         this.salary = salary;

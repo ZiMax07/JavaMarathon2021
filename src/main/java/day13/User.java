@@ -7,12 +7,10 @@ public class User {
 
     private String userName;
     private List<User> subscriptions;
-    private List<User> friendList;
 
     public User(String userName){
         this.userName = userName;
         this.subscriptions = new ArrayList<>();
-        this.friendList = new ArrayList<>();
     }
 
     public String getUserName() {
@@ -20,9 +18,6 @@ public class User {
     }
     public List<User> getSubscriptions() {
         return subscriptions;
-    }
-    public List<User> getFriendList() {
-        return friendList;
     }
 
     public void subscribe(User user){
@@ -32,14 +27,14 @@ public class User {
         return subscriptions.contains(user);
     }
     public boolean isFriend(User user){
-        return friendList.contains(user);
+        return isSubscribed(user) && user.isSubscribed(this);
     }
 
     public void sendMessage(User user, String text){
-        MessageDatabase.addNewMessage(new User(getUserName()), user, text);
-    }
+        MessageDatabase.addNewMessage(this, user, text);
+        }
 
     public String toString(){
-        return "Имя пользователя : " + userName;
+        return userName;
     }
 }

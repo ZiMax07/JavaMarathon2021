@@ -13,7 +13,7 @@ public class ChessBoard {
             for (int j = 0; j < chessPieces[i].length; j++){
                 System.out.print(chessPieces[i][j]);
             }
-            System.out.println();
+            System.out.println(); 
         }
     }
 }

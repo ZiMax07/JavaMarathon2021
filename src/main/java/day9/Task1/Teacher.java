@@ -11,6 +11,7 @@ public class Teacher extends Human{
         return subjectName;
     }
     public void printInfo(){
+        super.printInfo();
         System.out.println("Этот преподаватель с именем " + getName());
     }
 }

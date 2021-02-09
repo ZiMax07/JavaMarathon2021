@@ -5,7 +5,7 @@ public class Picker implements Worker {
     private boolean isPayed = false;
     private int salaryToPay = 0;
     private int bonus;
-    private  Warehouse warehouse = new Warehouse();
+    private  Warehouse warehouse;
 
     public Picker(int salary, Warehouse warehouse){
         this.salary = salary;

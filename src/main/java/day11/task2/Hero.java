@@ -1,19 +1,17 @@
 package day11.task2;
 
-public abstract class Hero {
-    private int health;
+public abstract class Hero implements PhysAttack{
+
     private double physDef;
     private double magicDef;
     private int physAtt;
-    private int magicAtt;
     private final int HP_MAX = 100;
     private final int HP_MIN = 0;
-    private int currentHealth = HP_MAX;
-    private  int healHimself;
-    private  int healTeammate;
+    private int currentHealth;
+
 
     public Hero (){
-        this.health = HP_MAX;
+        this.currentHealth = HP_MAX;
     }
     public void setPhysAtt(int physAtt) {
         this.physAtt = physAtt;
@@ -33,33 +31,31 @@ public abstract class Hero {
     public double getPhysDef() {
         return physDef;
     }
-    public int getHealth() {
-        return health;
-    }
-    public void setMagicAtt(int magicAtt) {
-        this.magicAtt = magicAtt;
-    }
-    public int getMagicAtt() {
-        return magicAtt;
-    }
-    public void setHealHimself(int healHimself) {
-        this.healHimself = healHimself;
-    }
-    public int getHealHimself() {
-        return healHimself;
-    }
-    public void setHealTeammate(int healTeammate) {
-        this.healTeammate = healTeammate;
-    }
-    public int getHealTeammate() {
-        return healTeammate;
-    }
     public void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
     }
     public int getCurrentHealth() {
         return currentHealth;
     }
-
-
+    public int getHP_MIN() {
+        return HP_MIN;
+    }
+    public int getHP_MAX() {
+        return HP_MAX;
+    }
+    @Override
+    public void physicalAttack(Hero hero) {
+        if (hero.getCurrentHealth() > HP_MIN && currentHealth > HP_MIN){
+            int attack = (int) (hero.getCurrentHealth() - (physAtt - physAtt * hero.getPhysDef()));
+            hero.setCurrentHealth(attack);
+            if (hero.getCurrentHealth() <= HP_MIN){
+                hero.setCurrentHealth(HP_MIN);
+                System.out.println("Персонаж убит");
+            }
+        } else if (hero.getCurrentHealth() <= HP_MIN){
+            System.out.println("Персонаж уже убит. Хотя... Можно пнуть и проверить наверняка");
+        } else {
+            System.out.println("Персонаж убит. Он не может атаковать");
+        }
+    }
 }

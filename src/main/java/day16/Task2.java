@@ -26,21 +26,17 @@ public class Task2 {
                 pw.println(random);
             }
             pw.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден");
-        }
-        try {
             PrintWriter pw2 = new PrintWriter(file2);
             Scanner scanner = new Scanner(file1);
             List<Integer> numbers = new ArrayList<>();
             int sum = 0;
             double average;
-            while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 numbers.add(Integer.parseInt(line));
             }
-            for (int i = 0; i < numbers.size(); i +=20){
-                for (int j = i; j < i + 20;j++){
+            for (int i = 0; i < numbers.size(); i += 20) {
+                for (int j = i; j < i + 20; j++) {
                     sum += numbers.get(j);
                 }
                 average = sum / 20.0;
@@ -48,10 +44,9 @@ public class Task2 {
                 sum = 0;
             }
             pw2.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден");
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-
         printResult(file2);
     }
 

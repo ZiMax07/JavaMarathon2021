@@ -6,25 +6,18 @@ import java.util.List;
 public class MessageDatabase {
 
     private static List<Message> messages = new ArrayList<>();
-    private static Message message;
 
-    public static void addNewMessage(User u1, User u2, String text){
-        message = new Message(u1.getUserName(),u2.getUserName(),text);
-        messages.add(message);
+    public static void addNewMessage(User sender, User receiver, String text){
+        messages.add(new Message(sender,receiver,text));
     }
     public static List<Message> getMessages(){
         return messages;
     }
     public static void showDialog(User u1, User u2){
-        for (Message message : getMessages()){
-            if (u1.getUserName().equals(message.getSender())){
-                if(u2.getUserName().equals(message.getReceiver())){
+        for (Message message : messages){
+            if (message.getSender() == u1 && message.getReceiver() == u2
+                    || message.getSender() == u2 && message.getReceiver() == u1){
             System.out.println(message.getSender() + " : " + message.getText());
-                }
-            } else if(u2.getUserName().equals(message.getSender())){
-                if (u1.getUserName().equals(message.getReceiver())){
-                    System.out.println(message.getSender() + " : " + message.getText());
-                }
             }
         }
     }

@@ -11,10 +11,11 @@ public class Task1 {
         long finish = System.currentTimeMillis();
         long timeConsumedMillis = finish - start;
         long start2 = System.currentTimeMillis();
+        String str = "";
         for (int i = 0; i <= 20000; i++) {
-            String str = String.valueOf(i);
-            System.out.print(str + " ");
+            str += i + " ";
         }
+        System.out.println(str);
         long finish2 = System.currentTimeMillis();
         long timeConsumedMillis2 = finish2 - start2;
         System.out.println();

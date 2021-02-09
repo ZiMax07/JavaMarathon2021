@@ -26,10 +26,8 @@ public class MusicBand {
     }
 
     public static void transferMembers(List<MusicBand> firstBand, List<MusicBand> secondBand){
-        for (MusicBand member : firstBand){
-            Collections.addAll(secondBand, new MusicBand(member.getName(), member.getMemberOfGroup(), member.getYear()));
-        }
-        firstBand.clear();
+            secondBand.addAll(firstBand);
+            firstBand.clear();
     }
     public static void printMembers(List<MusicBand> membersOfBand){
         System.out.println(getMembers(membersOfBand));

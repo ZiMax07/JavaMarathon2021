@@ -12,8 +12,6 @@ public class Task1 {
                 + separator + "Marathon" + separator + "JavaMarathon2021" + separator +
                 "src" + separator +"main" + separator + "java" + separator + "day14" + separator + "numbers");
 
-        // при написании "numbers.txt" не находит файл, тольк опри указании полного пути. Не понимаю почему
-
         printSumDigits(file);
 
     }

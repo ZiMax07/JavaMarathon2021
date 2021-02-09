@@ -23,5 +23,7 @@ public class Task2 {
 
         ChessBoard chessBoard = new ChessBoard(arrayChess);
         ChessBoard.print();
+
+        // Если будет большой массив, то лучше создавать пустой массив, заполнить его циклом со значением EMPTY и по индексу расставить фигуры
     }
 }

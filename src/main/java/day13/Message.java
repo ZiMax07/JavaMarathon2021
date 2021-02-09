@@ -4,22 +4,22 @@ import java.util.Date;
 
 public class Message {
 
-    private String sender;
-    private String receiver;
+    private User sender;
+    private User receiver;
     private String text;
     private Date date;
 
-    public Message(String sender, String receiver, String text) {
+    public Message(User sender, User receiver, String text) {
         this.sender = sender;
         this.receiver = receiver;
         this.text = text;
         this.date = new Date();
     }
 
-    public String getSender() {
+    public User getSender() {
         return sender;
     }
-    public String getReceiver() {
+    public User getReceiver() {
         return receiver;
     }
     public String getText() {
