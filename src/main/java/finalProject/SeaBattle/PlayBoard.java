@@ -56,7 +56,7 @@ public class PlayBoard implements GameInterface{
             return;
         } else {
             try {
-                System.out.println("Необходимо распололжить " + count4 + " четырехпалубный корабль, в формате \"x1.y1;x2.y2;x3.y3;x4.y4\"");
+                System.out.println("Необходимо расположить " + count4 + " четырехпалубный корабль, в формате \"x1.y1;x2.y2;x3.y3;x4.y4\"");
                 coordinate = scanner.nextLine();
                 String[] str = coordinate.split("\\W");
                 x1 = Integer.parseInt(str[0]);
@@ -67,11 +67,11 @@ public class PlayBoard implements GameInterface{
                 y3 = Integer.parseInt(str[5]);
                 x4 = Integer.parseInt(str[6]);
                 y4 = Integer.parseInt(str[7]);
+                if (x1 > 0 && y1 > 0 && x2 > 0 && y2 > 0 && x3 > 0 && y3 > 0 && x4 > 0 && y4 > 0 && count4 != 0) {
                 if (x2 == x1 && y2 == y1 - 1 && x3 == x1 && y3 == y1 - 2 && x4 == x1 && y4 == y1 - 3 ||
                         x2 == x1 && y2 == y1 + 1 && x3 == x1 && y3 == y1 + 2 && x4 == x1 && y4 == y1 + 3 ||
                         x2 == x1 - 1 && y2 == y1 && x3 == x1 - 2 && y3 == y1 && x4 == x1 - 3 && y4 == y1 ||
-                        x2 == x1 + 1 && y2 == y1 && x3 == x1 + 2 && y3 == y1 && x4 == x1 + 3 && y4 == y1)
-                {
+                        x2 == x1 + 1 && y2 == y1 && x3 == x1 + 2 && y3 == y1 && x4 == x1 + 3 && y4 == y1){
                     if (!board[x1][y1].equals(Ship.FOG_WAR.getShip()) || !board[x2][y2].equals(Ship.FOG_WAR.getShip())
                             || !board[x3][y3].equals(Ship.FOG_WAR.getShip()) || !board[x4][y4].equals(Ship.FOG_WAR.getShip())) {
                         System.out.println("Клетка занята кораблем или его ареалом");
@@ -108,6 +108,9 @@ public class PlayBoard implements GameInterface{
                 } else {
                     System.out.println("Корабль должен располагаться прямой непрерывной линией по вертикале или горизонтале");
                 }
+                } else {
+                    System.out.println("Можно вводить только цифры от 1 до 10 в формате \"x1.y1;x2.y2;x3.y3;x4.y4\"");
+                }
                 setShip4();
             }catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
                 System.out.println("Можно вводить только цифры от 1 до 10 в формате \"x1.y1;x2.y2;x3.y3;x4.y4\"");
@@ -122,7 +125,7 @@ public class PlayBoard implements GameInterface{
             return;
         } else {
             try {
-                System.out.println("Необходимо распололжить " + count3 + " трехпалубных корабля, в формате \"x1.y1;x2.y2;x3.y3\"");
+                System.out.println("Необходимо расположить " + count3 + " трехпалубных корабля, в формате \"x1.y1;x2.y2;x3.y3\"");
                 coordinate = scanner.nextLine();
                 String[] str = coordinate.split("\\W");
                 x1 = Integer.parseInt(str[0]);
@@ -131,6 +134,7 @@ public class PlayBoard implements GameInterface{
                 y2 = Integer.parseInt(str[3]);
                 x3 = Integer.parseInt(str[4]);
                 y3 = Integer.parseInt(str[5]);
+                if (x1 > 0 && y1 > 0 && x2 > 0 && y2 > 0 && x3 > 0 && y3 > 0 && count3 != 0) {
                 if (x2 == x1 && y2 == y1 - 1 && x3 == x1 && y3 == y1 - 2 || x2 == x1 -1 && y2 == y1 && x3 == x1 - 2 && y3 == y1
                     || x2 == x1 && y2 == y1 + 1 && x3 == x1 && y3 == y1 + 2 || x2 == x1 + 1 && y2 == y1 && x3 == x1 + 2 && y3 == y1) {
                     if (!board[x1][y1].equals(Ship.FOG_WAR.getShip()) || !board[x2][y2].equals(Ship.FOG_WAR.getShip()) || !board[x3][y3].equals(Ship.FOG_WAR.getShip())) {
@@ -163,6 +167,9 @@ public class PlayBoard implements GameInterface{
                 } else {
                     System.out.println("Корабль должен располагаться прямой непрерывной линией по вертикале или горизонтале");
                 }
+                } else {
+                    System.out.println("Можно вводить только цифры от 1 до 10 в формате \"x1.y1;x2.y2;x3.y3\"");
+                }
                 setShip3();
             }catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
                 System.out.println("Можно вводить только цифры от 1 до 10 в формате \"x1.y1;x2.y2;x3.y3\"");
@@ -177,13 +184,14 @@ public class PlayBoard implements GameInterface{
             return;
         } else {
             try {
-                System.out.println("Необходимо распололжить " + count2 + " двухпалубных корабля, в формате \"x1.y1;x2.y2\"");
+                System.out.println("Необходимо расположить " + count2 + " двухпалубных корабля, в формате \"x1.y1;x2.y2\"");
                 coordinate = scanner.nextLine();
                 String[] str = coordinate.split("\\W");
                 x1 = Integer.parseInt(str[0]);
                 y1 = Integer.parseInt(str[1]);
                 x2 = Integer.parseInt(str[2]);
                 y2 = Integer.parseInt(str[3]);
+                if (x1 > 0 && y1 > 0 && x2 > 0 && y2 > 0 && count2 != 0) {
                 if (x2 == x1 + 1 && y2 == y1 || x2 == x1 && y2 == y1 + 1 || x2 == x1 - 1 && y2 == y1 || x2 == x1 && y2 == y1 - 1) {
                     if (!board[x1][y1].equals(Ship.FOG_WAR.getShip()) || !board[x2][y2].equals(Ship.FOG_WAR.getShip())) {
                         System.out.println("Клетка занята кораблем или его ареалом");
@@ -210,8 +218,10 @@ public class PlayBoard implements GameInterface{
                 } else {
                     System.out.println("Корабль должен располагаться прямой линией по вертикале или горизонтале");
                 }
+                } else {
+                    System.out.println("Можно вводить только цифры от 1 до 10 в формате \"x1.y1;x2.y2\"");
+                }
                 setShip2();
-
             }catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
                 System.out.println("Можно вводить только цифры от 1 до 10 в формате \"x1.y1;x2.y2\"");
                 setShip2();
@@ -225,7 +235,7 @@ public class PlayBoard implements GameInterface{
             return;
         } else {
             try {
-                System.out.println("Ходит игрок " + this.name + "\nНеобходимо распололжить " + count1 + " однопалубных корабля, в формате \"x.y\"");
+                System.out.println("Ходит игрок " + this.name + "\nНеобходимо расположить " + count1 + " однопалубных корабля, в формате \"x.y\"");
                 coordinate = scanner.nextLine();
                 String[] str = coordinate.split("\\W");
                 x1 = Integer.parseInt(str[0]);
@@ -247,8 +257,10 @@ public class PlayBoard implements GameInterface{
                         gameBoard();
                         printBoard();
                     }
-                    setShip1();
+                } else {
+                    System.out.println("\"Можно вводить только цифры от 1 до 10 в формате \"x.y\"");
                 }
+                setShip1();
             }catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
                 System.out.println("Можно вводить только цифры от 1 до 10 в формате \"x.y\"");
                 setShip1();
@@ -301,6 +313,7 @@ public class PlayBoard implements GameInterface{
         try {
             if (playBoard.valueOfShips == 0){
                 System.out.println("Игра окончена. Победил игрок " + this.name);
+                this.printShootBoard();
                 return;
             } else {
             System.out.println("Ходит игрок " + this.name);
@@ -318,7 +331,8 @@ public class PlayBoard implements GameInterface{
             y = Integer.parseInt(str[1]);
             if (x > 0 && x <= 10 && y > 0 && y <= 10) {
                 if (playBoard.gameBoard[x][y].equals(Ship.ONE_DECK.getShip())) {
-                        System.out.println("Корабль уничтожен. Можете произвести еще 1 выстрел");
+                    System.out.println("Вы попали во вражеский корабль. Можете произвести еще 1 выстрел");
+                    System.out.println("Однопалубный корабль уничтожен");
                         playBoard.gameBoard[x][y] = Ship.SHIP_HIT.getShip();
                         this.shootBoard[x][y] = Ship.SHIP_HIT.getShip();
                         playBoard.valueOfShips--;
@@ -326,7 +340,7 @@ public class PlayBoard implements GameInterface{
                 } else if (playBoard.gameBoard[x][y].equals(Ship.TWO_DECK.getShip())){
                     playBoard.gameBoard[x][y] = Ship.SHIP_HIT.getShip();
                     this.shootBoard[x][y] = Ship.SHIP_HIT.getShip();
-                    System.out.println("Вы попали во вражеский корабль. Можете произвести еще 1 выстрел");
+                        System.out.println("Вы попали во вражеский корабль. Можете произвести еще 1 выстрел");
                     if (playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip()) || playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip())
                         || playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip()) || playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip())){
                         System.out.println("Двухпалубный корабль уничтожен");
@@ -337,10 +351,13 @@ public class PlayBoard implements GameInterface{
                     playBoard.gameBoard[x][y] = Ship.SHIP_HIT.getShip();
                     this.shootBoard[x][y] = Ship.SHIP_HIT.getShip();
                     System.out.println("Вы попали во вражеский корабль. Можете произвести еще 1 выстрел");
-                    if (playBoard.gameBoard[x][y - 2].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip())
-                            || playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x - 2][y].equals(Ship.SHIP_HIT.getShip())
-                            || playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y + 2].equals(Ship.SHIP_HIT.getShip())
-                            || playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 2][y].equals(Ship.SHIP_HIT.getShip())){
+                    if (
+                                playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip())
+                            ||  playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x - 2][y].equals(Ship.SHIP_HIT.getShip())
+                            ||  playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 2][y].equals(Ship.SHIP_HIT.getShip())
+                            ||  playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 2].equals(Ship.SHIP_HIT.getShip())
+                            ||  playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y + 2].equals(Ship.SHIP_HIT.getShip())
+                            ||  playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip())){
                         System.out.println("Трехпалубный корабль уничтожен");
                         playBoard.valueOfShips--;
                     }
@@ -348,26 +365,38 @@ public class PlayBoard implements GameInterface{
                 } else if(playBoard.gameBoard[x][y].equals(Ship.FOUR_DECK.getShip())){
                     playBoard.gameBoard[x][y] = Ship.SHIP_HIT.getShip();
                     this.shootBoard[x][y] = Ship.SHIP_HIT.getShip();
-                    System.out.println("Вы попали во вражеский корабль. Можете произвести еще 1 выстрел");
-                    if (playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 2].equals(Ship.SHIP_HIT.getShip())
-                                && playBoard.gameBoard[x][y - 3].equals(Ship.SHIP_HIT.getShip())
-                            || playBoard.gameBoard[x - 3][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x - 2][y].equals(Ship.SHIP_HIT.getShip())
-                                && playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip())
-                            || playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y + 2].equals(Ship.SHIP_HIT.getShip())
-                                && playBoard.gameBoard[x][y + 3].equals(Ship.SHIP_HIT.getShip())
-                            || playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 2][y].equals(Ship.SHIP_HIT.getShip())
-                                && playBoard.gameBoard[x + 3][y].equals(Ship.SHIP_HIT.getShip())){
+                        System.out.println("Вы попали во вражеский корабль. Можете произвести еще 1 выстрел");
+                    if (
+                               playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 2][y].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x + 3][y].equals(Ship.SHIP_HIT.getShip())
+                            || playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y + 2].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x][y + 3].equals(Ship.SHIP_HIT.getShip())
+                            || playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x - 2][y].equals(Ship.SHIP_HIT.getShip())
+                            || playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x + 1][y].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x + 2][y].equals(Ship.SHIP_HIT.getShip())
+                            || playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 2].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x][y - 3].equals(Ship.SHIP_HIT.getShip())
+                            || playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x][y - 2].equals(Ship.SHIP_HIT.getShip())
+                            || playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y - 1].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x][y + 1].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x][y + 2].equals(Ship.SHIP_HIT.getShip())
+                            || playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x - 3][y].equals(Ship.SHIP_HIT.getShip()) && playBoard.gameBoard[x - 2][y].equals(Ship.SHIP_HIT.getShip())
+                            && playBoard.gameBoard[x - 1][y].equals(Ship.SHIP_HIT.getShip())){
                         System.out.println("Четырехпалубный корабль уничтожен");
                         playBoard.valueOfShips--;
                     }
                     shoot(playBoard);
                 } else {
+                    if (playBoard.gameBoard[x][y].equals(Ship.SHIP_HIT.getShip()) || playBoard.gameBoard[x][y].equals(Ship.MISS.getShip())){
+                        System.out.println("Вы уже стреляли в эту область. Введите другие координаты");
+                        shoot(playBoard);
+                    } else {
                     playBoard.gameBoard[x][y] = Ship.MISS.getShip();
                     this.shootBoard[x][y] = Ship.MISS.getShip();
                     System.out.println("Мимо");
+                    }
                 }
-                this.printBoard();
-                this.printShootBoard();
             } else {
                 System.out.println("Необходимо производить выстрел в пределах игрового поля (10х10)");
                 shoot(playBoard);
